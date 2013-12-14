@@ -136,8 +136,8 @@ grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugin.springsecurity.interceptUrlMap = [
         '/secure/**':         ['ROLE_ADMIN'],
-        '/home/**':           ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_B4M'],
-        '/b4m/**':            ['ROLE_B4M'],
+        '/home/**':           ['ROLE_ADMIN', 'ROLE_USER'],
+        '/b4m/**':            ['ROLE_USER'],
         '/register/**':       ['permitAll'],
         '/index2':            ['permitAll'],
         '/index2.gsp':        ['permitAll'],
@@ -153,7 +153,7 @@ grails.plugin.springsecurity.interceptUrlMap = [
 ]
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home/loginSuccess'
 
-grails.plugin.springsecurity.ui.register.defaultRoleNames = ['ROLE_B4M']
+//grails.plugin.springsecurity.ui.register.defaultRoleNames = ['ROLE_B4M']
 
 def ENV_NAME = "B4M_CONFIG"
 if(!grails.config.locations || !(grails.config.locations instanceof List)) {
