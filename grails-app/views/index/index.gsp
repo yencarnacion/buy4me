@@ -15,7 +15,7 @@
 
 <li class="controller"><g:link controller="needItem" action="create"><g:message code="b4m.need" default="Need Person" /></g:link></li>
 
-<g:if test="${needItemInstanceList?.list.size > 0}">
+<g:if test="${needItemInstanceList?.list?.size > 0}">
 <table>
     <thead>
     <tr>
