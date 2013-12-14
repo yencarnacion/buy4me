@@ -32,7 +32,7 @@
     <g:each in="${needItemInstanceList}" status="i" var="needItemInstance">
         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-            <td><g:link action="show"
+            <td><g:link action="show" controller="needItem"
                         id="${needItemInstance.id}">${fieldValue(bean: needItemInstance, field: "needyUser.username")}</g:link></td>
 
             <td>${fieldValue(bean: needItemInstance, field: "what")}</td>

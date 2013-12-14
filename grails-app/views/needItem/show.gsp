@@ -34,7 +34,7 @@
 
                 <span class="property-value" aria-labelledby="needyUser-label"><g:link controller="b4mUser"
                                                                                        action="show"
-                                                                                       id="${needItemInstance?.needyUser?.id}">${needItemInstance?.needyUser?.encodeAsHTML()}</g:link></span>
+                                                                                       id="${needItemInstance?.needyUser?.id}">${needItemInstance?.needyUser?.username.encodeAsHTML()}</g:link></span>
 
             </li>
         </g:if>
