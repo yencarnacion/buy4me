@@ -153,7 +153,6 @@ grails.plugin.springsecurity.interceptUrlMap = [
 ]
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home/loginSuccess'
 
-grails.plugin.springsecurity.ui.encodePassword = false
 grails.plugin.springsecurity.ui.register.defaultRoleNames = ['ROLE_B4M']
 
 def ENV_NAME = "B4M_CONFIG"
@@ -172,19 +171,24 @@ if(System.getenv(ENV_NAME)) {
     println "No external configuration file defined."
 }
 
+grails.mail.default.from="buy4meapp@gmail.com"
 
 grails {
     mail {
-        host = "smtp.gmail.com"
-        port = 465
-        //username = ""
-        //password = ""
+
+        host = "email-smtp.us-east-1.amazonaws.com"
+        port = 587
+        username = System.getenv("MAILUSERNAME")
+        password = System.getenv("MAILPASSWORD")
         props = [
-                "mail.smtp.auth":"true",
-                "mail.smtp.socketFactory.port":"465",
-                "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-                "mail.smtp.socketFactory.fallback":"false"
-        ]
+                "mail.debug": "true",
+                "mail.smtp.starttls.enable":"true",
+                "mail.smtp.port":"587"]
     }
+
 }
+
+grails.plugin.springsecurity.ui.emailFrom = 'buy4meapp@gmail.com'
+grails.plugin.springsecurity.ui.register.emailFrom  = 'buy4meapp@gmail.com'
+
 
