@@ -1,4 +1,4 @@
-package seed.auth
+package buy4me.auth
 
 class Role {
 

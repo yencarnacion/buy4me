@@ -128,15 +128,18 @@ log4j = {
 
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'seed.auth.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'seed.auth.UserRole'
-grails.plugin.springsecurity.authority.className = 'seed.auth.Role'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'buy4me.auth.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'buy4me.auth.UserRole'
+grails.plugin.springsecurity.authority.className = 'buy4me.auth.Role'
 
 grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugin.springsecurity.interceptUrlMap = [
         '/secure/**':         ['ROLE_ADMIN'],
-        '/home/**':           ['ROLE_ADMIN', 'ROLE_USER'],
+        '/home/**':           ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_B4M'],
+        '/b4m/**':            ['ROLE_B4M'],
+        '/index2':            ['permitAll'],
+        '/index2.gsp':        ['permitAll'],
         '/':                  ['permitAll'],
         '/index':             ['permitAll'],
         '/index.gsp':         ['permitAll'],

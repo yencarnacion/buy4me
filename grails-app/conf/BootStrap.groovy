@@ -1,9 +1,10 @@
-import seed.Answer
-import seed.ContentMaterial
-import seed.QuestionAndAnswer
-import seed.auth.User
-import seed.auth.Role
-import seed.auth.UserRole
+import buy4me.Answer
+import buy4me.ContentMaterial
+import buy4me.QuestionAndAnswer
+import buy4me.auth.B4mUser
+import buy4me.auth.User
+import buy4me.auth.Role
+import buy4me.auth.UserRole
 
 class BootStrap {
 
@@ -14,6 +15,7 @@ class BootStrap {
 
                 def userRole = Role.findByAuthority("ROLE_USER") ?: new Role(authority: "ROLE_USER").save(flush: true)
                 def adminRole = Role.findByAuthority("ROLE_ADMIN") ?: new Role(authority: "ROLE_ADMIN").save(flush: true)
+                def b4mRole = Role.findByAuthority("ROLE_B4M") ?: new Role(authority: "ROLE_B4M").save(flush: true)
 
                 def admin = User.get(1);
                 if(!admin){
@@ -24,6 +26,16 @@ class BootStrap {
                             enabled: true,
                     ).save(flush: true, failOnError: true)
                     UserRole.create admin, adminRole
+                }
+
+                def b4mUser = B4mUser.get(1);
+                if(!b4mUser){
+                    b4mUser = new B4mUser(
+                            username: "b4muser",
+                            password: "password",
+                            enabled: true,
+                    ).save(flush: true, failOnError: true)
+                    UserRole.create b4mUser, b4mRole
                 }
 
                 def answer0 = Answer.get(1)

@@ -1,4 +1,4 @@
-<%@ page import="seed.ContentMaterial" %>
+<%@ page import="buy4me.ContentMaterial" %>
 
 
 

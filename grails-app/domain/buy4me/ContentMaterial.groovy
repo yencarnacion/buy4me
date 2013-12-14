@@ -1,4 +1,4 @@
-package seed
+package buy4me
 
 class ContentMaterial implements java.io.Serializable {
 

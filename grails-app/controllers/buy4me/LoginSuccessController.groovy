@@ -1,4 +1,4 @@
-package seed
+package buy4me
 
 import grails.plugin.springsecurity.SpringSecurityUtils
 

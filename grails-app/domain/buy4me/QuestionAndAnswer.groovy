@@ -1,4 +1,4 @@
-package seed
+package buy4me
 
 class QuestionAndAnswer implements java.io.Serializable {
 

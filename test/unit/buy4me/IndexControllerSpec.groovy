@@ -1,4 +1,4 @@
-package seed
+package buy4me
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -6,8 +6,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
-@TestFor(ContentMaterialController)
-class ContentMaterialControllerSpec extends Specification {
+@TestFor(IndexController)
+class IndexControllerSpec extends Specification {
 
     def setup() {
     }

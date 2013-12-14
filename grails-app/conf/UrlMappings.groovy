@@ -6,10 +6,13 @@ class UrlMappings {
         "/login/$action" (controller: "login")
         "/logout/$action" (controller:  "logout")
 
-        "/"(view:"/index")
+        "/"(controller: "index")
+        "/index2"(view:"/index2")
         "500"(view:'/error')
 
         "/home/dashboard" (view: "/dashboard")
+        "/b4m/needItem/$action?/$id?(.${format})?"   (controller: "needItem")
+
         "/home/webflow/$action?/$id?(.${format})?" (controller: "webflow")
 
         "/secure/dashboard" (view: "/dashboard")
