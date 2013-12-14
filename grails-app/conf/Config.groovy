@@ -138,6 +138,7 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/secure/**':         ['ROLE_ADMIN'],
         '/home/**':           ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_B4M'],
         '/b4m/**':            ['ROLE_B4M'],
+        '/register/**':       ['permitAll'],
         '/index2':            ['permitAll'],
         '/index2.gsp':        ['permitAll'],
         '/':                  ['permitAll'],
@@ -150,6 +151,40 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/login/**':          ['permitAll'],
         '/logout/**':         ['permitAll'],
 ]
-grails.plugin.springsecurity.ui.encodePassword = false
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home/loginSuccess'
+
+grails.plugin.springsecurity.ui.encodePassword = false
+grails.plugin.springsecurity.ui.register.defaultRoleNames = ['ROLE_B4M']
+
+def ENV_NAME = "B4M_CONFIG"
+if(!grails.config.locations || !(grails.config.locations instanceof List)) {
+    grails.config.locations = []
+}
+if(System.getenv(ENV_NAME)) {
+    println "Including configuration file specified in environment: " + System.getenv(ENV_NAME);
+    grails.config.locations << "file:" + System.getenv(ENV_NAME)
+
+} else if(System.getProperty(ENV_NAME)) {
+    println "Including configuration file specified on command line: " + System.getProperty(ENV_NAME);
+    grails.config.locations << "file:" + System.getProperty(ENV_NAME)
+
+} else {
+    println "No external configuration file defined."
+}
+
+
+grails {
+    mail {
+        host = "smtp.gmail.com"
+        port = 465
+        //username = ""
+        //password = ""
+        props = [
+                "mail.smtp.auth":"true",
+                "mail.smtp.socketFactory.port":"465",
+                "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                "mail.smtp.socketFactory.fallback":"false"
+        ]
+    }
+}
 

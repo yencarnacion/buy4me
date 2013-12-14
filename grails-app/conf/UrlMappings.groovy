@@ -5,6 +5,7 @@ class UrlMappings {
         "/home/loginSuccess" (controller: "loginSuccess")
         "/login/$action" (controller: "login")
         "/logout/$action" (controller:  "logout")
+        "/register/$action?/$id?(.${format})?" (controller: "register")
 
         "/"(controller: "index")
         "/index2"(view:"/index2")
